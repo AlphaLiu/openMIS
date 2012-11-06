@@ -1,0 +1,9 @@
+- if @user.errors.any?
+	div#error_explanation
+		.alert.alert-error
+			' 有错误发生
+		ul
+			- @user.errors.full_messages.each do |msg|
+				li 
+					' * 
+					= msg
