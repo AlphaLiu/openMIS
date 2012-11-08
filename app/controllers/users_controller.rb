@@ -12,8 +12,9 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(params[:user])
 		if @user.save
+      sign_in @user
 			flash[:success] = "用户 #{@user.name} 创建成功！"
-      		redirect_to users_path
+      redirect_to users_path
 	  else
 	  	render 'new'
 	  end

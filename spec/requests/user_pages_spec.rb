@@ -35,6 +35,13 @@ describe "UserPages" do
 				expect { click_button submit }.to change(User, :count).by(1)
 			end
 
+       describe "after saving the user" do
+        before { click_button submit }
+        let(:user) { User.find_by_name('Example User') }
+
+        it { should have_link('退出登录') }
+      end
+
 		end
 	end
 

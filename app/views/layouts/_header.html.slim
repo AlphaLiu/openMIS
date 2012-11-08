@@ -3,14 +3,12 @@ header.navbar.navbar-fixed-top
     .container
       /= link_to "企业进销存管理系统", root_path, id: "logo"
       nav
-       ul.nav.pull-right 
-        li= link_to "首页", "#"
-        / - if signed_in?
-        /   li#fat-menu.dropdown
-        /     a.dropdown-toggle(href="#" data-toggle="dropdown") 
-        /       | Account
-        /       b.caret
-        /     ul.dropdown-menu
-        /       li= link_to "Sign out", signout_path, method: "delete"
-        / - else
-        li= link_to "Sign in", "#{}"
+        ul.nav.pull-right 
+          li= link_to "首页", root_path
+          - if signed_in?
+            li#fat-menu.dropdown
+              a.dropdown-toggle(href="#" data-toggle="dropdown")
+                = current_user.name
+                b.caret
+              ul.dropdown-menu
+                li= link_to "退出登录", signout_path, method: "delete"
