@@ -1,0 +1,17 @@
+- provide(:title, "更新信息")
+h1 更新信息
+.row
+  .span6.offset3
+    = form_for(@user) do |f|
+      = render 'shared/error_messages'
+
+      = f.label :email, "电子邮箱"
+      = f.text_field :email
+
+      = f.label :password, "密码"
+      = f.password_field :password
+
+      = f.label :password_confirmation, "确认密码"
+      = f.password_field :password_confirmation
+
+      = f.submit "保存改变", class: "btn btn-large btn-primary"

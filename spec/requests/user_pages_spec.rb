@@ -45,5 +45,21 @@ describe "UserPages" do
 		end
 	end
 
+  describe "edit" do
+    let(:user) { FactoryGirl.create(:user) }
+    before { visit edit_user_path(user) }
+
+    describe "page" do
+      it { should have_selector('h1',    text: "更新信息") }
+      it { should have_selector('title', text: "更新信息") }
+    end
+
+    describe "with invalid information" do
+      before { click_button "保存改变" }
+
+      it { should have_content('error') }
+    end
+  end
+
 
 end

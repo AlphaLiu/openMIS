@@ -29,11 +29,7 @@ describe "AuthenticationPages" do
 
     describe "with valid information" do
       let(:user) { FactoryGirl.create(:user) }
-      before do
-        fill_in "用户名",    with: user.name
-        fill_in "密码", with: user.password
-        click_button "登录"
-      end
+      before { sign_in user}
 
       it { should have_link('退出登录', href: signout_path) }
 
