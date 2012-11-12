@@ -9,4 +9,5 @@ OpenMIS::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
 
   match '/templates/all_users', to: 'templates#all_users'
+  match '/templates/user_password', to: 'templates#user_password'
 end
