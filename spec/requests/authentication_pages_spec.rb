@@ -72,7 +72,7 @@ describe "AuthenticationPages" do
           #end
         #end
       #end
-    #end
+    end
 
     describe "as wrong user" do
       let(:user) { FactoryGirl.create(:user) }
