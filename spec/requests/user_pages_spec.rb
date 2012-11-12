@@ -47,7 +47,10 @@ describe "UserPages" do
 
   describe "edit" do
     let(:user) { FactoryGirl.create(:user) }
-    before { visit edit_user_path(user) }
+    before do
+      sign_in user
+      visit edit_user_path(user) 
+    end
 
     describe "page" do
       it { should have_selector('h1',    text: "更新信息") }
@@ -57,7 +60,21 @@ describe "UserPages" do
     describe "with invalid information" do
       before { click_button "保存改变" }
 
-      it { should have_content('error') }
+      it { should have_content('错误') }
+    end
+
+    describe "with valid information" do
+      let(:new_email) { "new@example.com" }
+      before do
+        fill_in "电子邮箱",            with: new_email
+        fill_in "密码",         with: user.password
+        fill_in "确认密码", with: user.password
+        click_button "保存改变"
+      end
+
+      it { should have_selector('div.alert.alert-success') }
+      it { should have_link('退出登录', href: signout_path) }
+      specify { user.reload.email.should == new_email }
     end
   end
 
