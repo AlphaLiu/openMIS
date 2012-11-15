@@ -1,1 +1,7 @@
-= render 'shared/signed_in'		
+.row
+  = render 'shared/menu'
+  /= render 'shared/admin_sidebar'
+  .span8
+    h3 个人信息
+    ol.microposts
+      = render 'templates/user_info' 

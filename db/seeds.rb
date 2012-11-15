@@ -11,10 +11,19 @@ Role.delete_all
 User.delete_all
 
 admin_role = Role.create(name: "admin", display_name: "系统管理员")
-Role.create(name: "purchase", display_name: "采购员")
-Role.create(name: "sales", display_name: "业务员")
-Role.create(name: "store", display_name: "仓库管理员")
+purchase_role = Role.create(name: "purchase", display_name: "采购员")
+sales_role = Role.create(name: "sales", display_name: "业务员")
+store_role = Role.create(name: "store", display_name: "仓库管理员")
 
+users = admin_role.users.build(name: "admin", email: "admin@example.com", password: "123456", password_confirmation: "123456")
+users.save
 
-admin_user = admin_role.users.build(name: "admin", email: "admin@example.com", password: "123456", password_confirmation: "123456")
-admin_user.save
+users = purchase_role.users.build(name: "james", email: "james@example.com", password: "123456", password_confirmation: "123456")
+users.save
+
+users = sales_role.users.build(name: "jimmy", email: "jimmy@example.com", password: "123456", password_confirmation: "123456")
+users.save
+
+users = store_role.users.build(name: "johny", email: "johny@example.com", password: "123456", password_confirmation: "123456")
+users.save
+

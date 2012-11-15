@@ -1,2 +1,30 @@
-- provide(:title, "全部用户")
-= render 'shared/admin_sidebar'
+- provide(:title, "员工信息")
+.row
+  = render 'shared/menu'
+  .span8
+    h3 员工信息
+    ol.microposts
+      table.table.table-striped
+        tr
+          td 
+            strong 用户名
+          td 
+            strong 电子邮箱
+          td 
+            strong 操作
+        - @users.each do |user|
+          tr
+            td
+              #{user.name} 
+            td
+              #{user.email} 
+            td
+              a href="#"
+                | 查看
+              |       
+              a href="#"
+                | 编辑
+              |       
+              a href="#"
+                | 删除
+    button.btn.btn-primary.btn-large(type="button") 创建新员工

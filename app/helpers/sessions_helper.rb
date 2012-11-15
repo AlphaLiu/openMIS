@@ -34,4 +34,20 @@ module SessionsHelper
   def store_location
     session[:return_to] = request.url
   end
+
+  def admin?(user)
+    user.role.name == "admin" 
+  end
+
+  def purchase?(user)
+    user.role.name == "purchase" 
+  end
+
+  def sales?(user)
+    user.role.name == "sales" 
+  end
+
+  def store?(user)
+    user.role.name == "store" 
+  end
 end

@@ -1,0 +1,22 @@
+aside.span4
+  section
+    .span3.bs-docs-sidebar
+      = render_list class: "nav nav-list bs-docs-sidenav"  do |li|
+        - li << link_to_menu("个人信息管理", current_user)
+        - li << link_to_menu("个人密码管理", edit_user_path(current_user))
+        - if admin?(current_user)
+          - li << link_to_menu("员工信息管理", users_path)
+          - li << link_to_menu("系统维护", "#")
+        - elsif purchase?(current_user)
+          - li << link_to_menu("采购下单", "#")
+          - li << link_to_menu("采购统计", "#")
+        - elsif sales?(current_user)
+          - li << link_to_menu("创建销售订单", "#")
+          - li << link_to_menu("查询销售订单", "#")
+        - elsif store?(current_user)
+          - li << link_to_menu("商品入库", "#")
+          - li << link_to_menu("商品出库", "#")
+          - li << link_to_menu("商品盘点", "#")
+          - li << link_to_menu("商品信息管理", "#")
+          - li << link_to_menu("供应商信息管理", "#")
+        - li << link_to_menu("查询商品信息", "#")

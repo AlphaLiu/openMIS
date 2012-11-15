@@ -36,6 +36,8 @@ gem 'jquery-rails'
 
 # bootstrap
 gem 'bootstrap-sass'
+gem 'bootstrap-rails', :require => 'bootstrap-rails',
+                        :git => 'https://github.com/xdite/bootstrap-rails'
 
 gem 'therubyracer', '>= 0.8.2'
 #gem 'rb-fsevent', :group => :development

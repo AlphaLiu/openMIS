@@ -9,4 +9,12 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+
+  def link_to_menu(name, *args)
+    link_to(*args) do
+      content = content_tag(:i, '', class: 'icon-chevron-right')
+      content << "#{name}"
+      content
+    end
+  end
 end
