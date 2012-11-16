@@ -11,6 +11,8 @@
           td 
             strong 电子邮箱
           td 
+            strong 身份
+          td 
             strong 操作
         - @users.each do |user|
           tr
@@ -18,6 +20,8 @@
               #{user.name} 
             td
               #{user.email} 
+            td
+              #{user.role.display_name}
             td
               a href="#"
                 | 查看
