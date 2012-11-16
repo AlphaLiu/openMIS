@@ -1,37 +1,10 @@
 .row
   = render 'shared/menu'
-  /= render 'shared/admin_sidebar'
   .span8
     h3 个人信息
-    ol.microposts
-      /= render 'templates/user_info' 
-      table.table
-        tr
-          td 
-            strong 姓名：
-            = current_user.userinfo.real_name
-          td 
-            strong 性别：
-            = current_user.userinfo.gender
-        tr
-          td 
-            strong 员工ID：
-            = current_user.userinfo.id_num
-          td 
-            strong 办公室电话：
-            = current_user.userinfo.office_phone
-        tr
-          td 
-            strong 手机：
-            = current_user.userinfo.cellphone
-          td 
-            strong 住宅电话：
-            = current_user.userinfo.home_phone
-        tr
-          td 
-            strong 入职日期：
-            = current_user.userinfo.join_date.strftime("%Y-%m-%d") unless current_user.userinfo.join_date.nil? 
-          td 
-            strong 电子邮箱：
-            = current_user.email
-      button.btn.btn-primary.btn-large(type="button") 修改
+    ol.microposts#user_info
+      = render 'userinfo'
+
+      a.btn.btn-primary.btn-large data-toggle="modal" data-keyboard="true" data-backdrop="true" href="#editinfo"
+        | 修改
+      = render partial: 'edit_user_info', locals: { user: current_user }

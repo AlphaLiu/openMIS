@@ -1,0 +1,31 @@
+= form_for(user) do |f|
+  .modal.hide.fade#editinfo
+    .modal-header
+      button.close type="button" data-dismiss="modal" aria-hidden="true" x
+      h3 修改个人信息
+    .modal-body
+      /p= user.userinfo.real_name 
+      = f.fields_for user.userinfo do |userinfo|
+        = userinfo.label :real_name, "姓名"
+        = userinfo.text_field :real_name
+
+        = userinfo.label :gender, "性别"
+        /= userinfo.text_field :gender
+        = userinfo.select :gender, Userinfo::GENDER
+
+        = userinfo.label :office_phone, "办公室电话"
+        = userinfo.telephone_field :office_phone
+
+        = userinfo.label :cellphone, "手机"
+        = userinfo.telephone_field :cellphone
+
+        = userinfo.label :home_phone, "住宅电话"
+        = userinfo.telephone_field :home_phone
+
+        = userinfo.label :join_date, "入职日期"
+        = userinfo.text_field :join_date
+
+      = f.label :email, "电子邮箱"
+      = f.text_field :email 
+    .modal-footer
+      = f.submit "保存修改", class: "btn btn-large btn-primary"

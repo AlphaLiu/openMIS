@@ -1,0 +1,34 @@
+table.table
+  tr
+    td 
+      strong 姓名：
+      = current_user.userinfo.real_name
+    td 
+      strong 身份：
+      = current_user.role.display_name
+  tr
+    td 
+      strong 性别：
+      = current_user.userinfo.gender
+    td 
+      strong 员工ID：
+      = current_user.userinfo.id_num
+  tr
+    td 
+      strong 办公室电话：
+      = current_user.userinfo.office_phone
+    td 
+      strong 手机：
+      = current_user.userinfo.cellphone
+  tr
+    td 
+      strong 住宅电话：
+      = current_user.userinfo.home_phone
+    td 
+      strong 入职日期：
+      = current_user.userinfo.join_date.strftime("%Y-%m-%d") unless current_user.userinfo.join_date.nil? 
+  tr
+    td 
+      strong 电子邮箱：
+      = current_user.email
+    td
