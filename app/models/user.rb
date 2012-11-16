@@ -12,10 +12,12 @@
 #
 
 class User < ActiveRecord::Base
-  belongs_to :role
 
   attr_accessible :email, :name, :password, :password_confirmation
   has_secure_password
+
+  belongs_to :role
+  has_one :userinfo
 
   before_save { self.name.downcase! }
   before_save :create_remember_token

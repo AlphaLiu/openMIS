@@ -1,4 +1,6 @@
 OpenMIS::Application.routes.draw do
+  get "userinfo/show"
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
