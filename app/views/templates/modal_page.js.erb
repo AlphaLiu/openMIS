@@ -1,0 +1,3 @@
+$("#main").empty()
+$("#main").append("<%= escape_javascript(render "modal_page", :formats => [:html]) %>");
+$("#user-edit").modal();

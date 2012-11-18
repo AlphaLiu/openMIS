@@ -1,7 +1,9 @@
 class TemplatesController < ApplicationController
-  def all_users
+  def modal_page
+    
   end
 
-  def user_password
+  def modal_page
+    @temp = "Hello World"  
   end
 end
