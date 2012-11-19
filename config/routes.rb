@@ -2,6 +2,7 @@ OpenMIS::Application.routes.draw do
 
   resources :users do
     member do
+      get "editinfo"
       put "updateinfo"
     end
   end

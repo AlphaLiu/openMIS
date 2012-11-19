@@ -1,11 +1,11 @@
-= form_for(user) do |f|
+= form_for(@user) do |f|
   .modal.hide.fade#editinfo
     .modal-header
       button.close type="button" data-dismiss="modal" aria-hidden="true" x
       h3 修改个人信息
     .modal-body
       /p= user.userinfo.real_name 
-      = f.fields_for user.userinfo do |userinfo|
+      = f.fields_for @user.userinfo do |userinfo|
         = userinfo.label :real_name, "姓名"
         = userinfo.text_field :real_name
 
@@ -28,4 +28,4 @@
       = f.label :email, "电子邮箱"
       = f.text_field :email 
     .modal-footer
-      = f.submit "保存修改", class: "btn btn-large btn-primary"
+      = f.submit "保存修改", class: "btn btn-primary"

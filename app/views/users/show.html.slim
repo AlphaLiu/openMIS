@@ -5,6 +5,7 @@
     ol.microposts#user_info
       = render 'userinfo'
 
-      a.btn.btn-primary.btn-large data-toggle="modal" data-keyboard="true" data-backdrop="true" href="#editinfo"
+      /a.btn.btn-primary.btn-large data-toggle="modal" data-keyboard="true" data-backdrop="true" href="#editinfo"
         | 修改
-      = render partial: 'edit_user_info', locals: { user: current_user }
+      = link_to "修改",editinfo_user_path , class: "btn btn-primary", :remote => true, data: { toggle: "modal", keyboard: "true", backdrop: "true" }
+      div#main

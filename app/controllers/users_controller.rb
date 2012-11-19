@@ -42,6 +42,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def editinfo
+    @user = current_user 
+  end
+
+
   private
   def signed_in_user
     unless signed_in?
