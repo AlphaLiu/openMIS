@@ -23,12 +23,11 @@
             td
               #{user.role.display_name}
             td
-              a href="#"
-                | 查看
+              = link_to "查看", user
               |       
               a href="#"
                 | 编辑
               |       
               a href="#"
                 | 删除
-    button.btn.btn-primary.btn-large(type="button") 创建新员工
+    button.btn.btn-primary(type="button") 创建新员工

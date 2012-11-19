@@ -33,10 +33,10 @@ class UsersController < ApplicationController
 
   def update
 
-    if @user.update_attribute(:email, params[:user][:email]) && @user.userinfo.update_attributes(params[:user][:userinfo])
-      flash[:success] = "个人信息更新"
+    if @user.update_attributes(params[:user])
+      flash.now[:success] = "个人密码更行成功"
       sign_in @user
-      redirect_to @user
+      render 'edit'
     else
       render 'edit'
     end
@@ -44,6 +44,17 @@ class UsersController < ApplicationController
 
   def editinfo
     @user = current_user 
+  end
+
+  def updateinfo
+    @user = current_user
+    if @user.update_attribute(:email, params[:user][:email]) && @user.userinfo.update_attributes(params[:user][:userinfo])
+      flash[:success] = "个人信息更新成功"
+      sign_in @user
+      redirect_to @user
+    else
+      render 'eidtinfo'
+    end
   end
 
 
