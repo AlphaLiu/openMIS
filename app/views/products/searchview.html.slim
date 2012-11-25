@@ -3,7 +3,10 @@
   .span8
     h3 查询商品
     ol.microposts
-      = link_to "查询", "#", class: "btn btn-primary", :remote => true 
+      = form_tag(products_search_path, method: :post, remote: true) do
+        = label_tag :name, "商品名称:"
+        = text_field_tag :name, params[:name]
+        = submit_tag "查询", class: "btn btn-primary"
       p
       table.table.table-striped#products
         tr
