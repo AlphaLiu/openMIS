@@ -1,0 +1,19 @@
+.row
+  = render 'shared/menu'
+  .span8
+    h3 查询商品
+    ol.microposts
+      = link_to "查询", "#", class: "btn btn-primary", :remote => true 
+      p
+      table.table.table-striped#products
+        tr
+          td 
+            strong 商品
+          td 
+            strong 库存
+          td 
+            strong 单位
+          td 
+            strong 购入单价
+          td 
+            strong 售出单价
