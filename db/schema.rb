@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121116012900) do
+ActiveRecord::Schema.define(:version => 20121125042454) do
+
+  create_table "products", :force => true do |t|
+    t.string   "product_name"
+    t.string   "unit"
+    t.integer  "stored_count"
+    t.decimal  "purchase_price", :precision => 8, :scale => 2
+    t.decimal  "sell_price",     :precision => 8, :scale => 2
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"

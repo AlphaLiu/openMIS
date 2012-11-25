@@ -1,5 +1,7 @@
 OpenMIS::Application.routes.draw do
 
+  get "products/search"
+
   resources :users do
     member do
       get "editinfo"
@@ -7,6 +9,8 @@ OpenMIS::Application.routes.draw do
     end
   end
   resources :sessions, only: [:new, :create, :destroy]
+
+  resources :products, only: [:search]
 
   root to: 'static_pages#home'
 
