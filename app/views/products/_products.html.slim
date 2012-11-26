@@ -11,8 +11,8 @@ tr
     strong 销售单价
   - if @products.empty?
     tr
-      td(colspan="5")
-        | 没有符合的商品。
+      td(colspan="5" style="text-align:center")
+        strong 没有符合的商品。
   - else
     - @products.each do |product|
       tr
