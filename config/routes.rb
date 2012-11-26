@@ -10,6 +10,7 @@ OpenMIS::Application.routes.draw do
     end
   end
   resources :sessions, only: [:new, :create, :destroy]
+  resources :products, only: [:index]
 
   root to: 'static_pages#home'
 

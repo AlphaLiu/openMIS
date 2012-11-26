@@ -11,4 +11,8 @@ class ProductsController < ApplicationController
       @products = []
     end
   end
+
+  def index
+    @products = Product.all #should not use all in real project
+  end
 end
