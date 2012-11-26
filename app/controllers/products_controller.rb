@@ -15,4 +15,8 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all #should not use all in real project
   end
+
+  def purchaseview
+    @products = Product.where("stored_count <= ?", MIN_STORED)
+  end
 end

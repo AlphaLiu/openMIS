@@ -1,6 +1,7 @@
 OpenMIS::Application.routes.draw do
 
   get "products/searchview"
+  get "products/purchaseview"
   post "products/search"
 
   resources :users do

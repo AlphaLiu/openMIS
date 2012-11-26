@@ -1,0 +1,35 @@
+.row
+  = render 'shared/menu'
+  .span8
+    h3 采购下单
+    ol.microposts
+      p
+        strong= "库存中数量低于 #{MIN_STORED} 的商品"
+      table.table.table-striped#products
+        tr
+          td 
+            strong 商品
+          td 
+            strong 库存
+          td 
+            strong 单位
+          td 
+            strong 购入单价
+          td 
+            strong 销售单价
+          td
+            strong 操作
+
+          - if @products.empty?
+            tr
+              td(colspan="6" style="text-align:center")
+                strong 没有需要采购的商品。
+          - else
+            - @products.each do |product|
+              tr
+                td= product.product_name
+                td= product.stored_count
+                td= product.unit
+                td= number_to_currency(product.purchase_price, unit: "￥")
+                td= number_to_currency(product.sell_price, unit: "￥")
+                td= link_to "采购", "#"

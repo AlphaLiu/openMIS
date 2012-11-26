@@ -8,7 +8,7 @@ aside.span4
           - li << link_to_menu("员工信息管理", users_path)
           - li << link_to_menu("系统维护", "#")
         - elsif purchase?(current_user)
-          - li << link_to_menu("采购下单", "#")
+          - li << link_to_menu("采购下单", products_purchaseview_path)
           - li << link_to_menu("采购统计", "#")
         - elsif sales?(current_user)
           - li << link_to_menu("创建销售订单", "#")
