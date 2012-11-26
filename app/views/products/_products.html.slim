@@ -8,18 +8,16 @@ tr
   td 
     strong 购入单价
   td 
-    strong 售出单价
-  tr
-    td(colspan="5")= @name
-  /- if @products.empty?
-    /tr
-      /td(colspan="5")
-        /| 没有符合的商品。
-  /- else
-    /- @products.each do |product|
-      /tr
-        /td= product.product_name
-        /td= product.stored_count
-        /td= product.unit
-        /td= number_to_currency(product.purchase_price)
-        /td= number_to_currency(product.sell_price)
+    strong 销售单价
+  - if @products.empty?
+    tr
+      td(colspan="5")
+        | 没有符合的商品。
+  - else
+    - @products.each do |product|
+      tr
+        td= product.product_name
+        td= product.stored_count
+        td= product.unit
+        td= number_to_currency(product.purchase_price, unit: "￥")
+        td= number_to_currency(product.sell_price, unit: "￥")
